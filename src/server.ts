@@ -20,6 +20,9 @@ const pool = new Pool({
   database: process.env.DB_NAME || "postdb",
   password: process.env.DB_PASSWORD || "password",
   port: parseInt(process.env.DB_PORT || "5432"),
+  ssl: {
+    rejectUnauthorized: false, 
+  }
 });
 
 (async () => {
@@ -29,6 +32,7 @@ const pool = new Pool({
     console.log("INFO: potgress connected successfully");
   } catch (err) {
     console.error("unable to connect to pg");
+    console.log(err)
     process.exit();
   } finally {
     if (client) await client.release();
