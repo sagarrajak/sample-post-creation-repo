@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/server.js",
-    "seed": "node dist/seed.js",
+    "seed": "node dist/seeds/seed.js",
     "dev": "nodemon src/server.ts"
   },
   "author": "",
