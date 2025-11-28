@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { Pool } from "pg";
+import { Client } from "pg";
 import { UpdateReactionRequest } from "../modesl/post";
 
-async function PostRouteGet(pool: Pool, req: Request, res: Response) {
+async function PostRouteGet(pool: Client, req: Request, res: Response) {
   try {
     const page = parseInt(req.query.page as string) || 1;
     const limit = parseInt(req.query.limit as string) || 10;
@@ -29,7 +29,7 @@ async function PostRouteGet(pool: Pool, req: Request, res: Response) {
   }
 }
 
-async function PostRouteUpdateRoute(pool: Pool, req: Request, res: Response) {
+async function PostRouteUpdateRoute(pool: Client, req: Request, res: Response) {
   try {
     const id = parseInt(req.params.id);
     const { action }: UpdateReactionRequest = req.body;
@@ -50,4 +50,4 @@ async function PostRouteUpdateRoute(pool: Pool, req: Request, res: Response) {
   }
 }
 
-export { PostRouteGet };
+export { PostRouteGet, PostRouteUpdateRoute };
