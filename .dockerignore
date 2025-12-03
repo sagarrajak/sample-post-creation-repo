@@ -1,0 +1,16 @@
+# Exclude the git directory
+.git
+.env
+.env.*
+
+# Exclude all local environment dependencies 
+node_modules
+*.venv
+
+# Exclude local build output and logs
+dist
+logs
+*.log
+
+# Exclude the .dockerignore file itself (optional)
+.dockerignore
